@@ -1,4 +1,4 @@
-public class ByValues {
+public class ByValues extends Person {
 
 	public static void add(int a, int b) {
 		a = a + b;
@@ -14,11 +14,18 @@ public class ByValues {
 		y = new Data(2);
 		add(x, y);
 		System.out.println(" X = " + x.getData());
+		ByValues by = new ByValues();
+		by.name("Suwat");
+	}
 
-	  }
+	@Override
+	public void name(String n) {
+		name = n;
+		show();
+	}
 
-	
 }
+
 class Data {
 	int d;
 
@@ -33,5 +40,15 @@ class Data {
 
 	public void setData(int d) {
 		this.d = d;
+	}
+}
+
+abstract class Person {
+	String name;
+
+	public abstract void name(String n);
+
+	public void show() {
+		System.out.println("Name = " + name);
 	}
 }
